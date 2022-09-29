@@ -31,17 +31,17 @@ void traiterSIGINT (int signal) {
 int main(int argc, char *argv[]) {
 
     // Se proteger contre Ctrl-C (SIGINT)
-    //Structure pour enregistrer une action lors de la réception
+    //Structure pour enregistrer une action lors de la rÃ©ception
     struct sigaction action, oldAction;
     action.sa_handler = traiterSIGINT;
 
-    //On vide la liste des signaux bloqués
+    //On vide la liste des signaux bloquÃ©s
     sigemptyset(&action.sa_mask);
 
-    //Redémarrage
+    //RedÃ©marrage
     action.sa_flags = SA_RESTART;
 
-    //Mise en place de l'action pour le signal SIGINT (CTRL-C), ancienne action sauvegardée dans oldAction
+    //Mise en place de l'action pour le signal SIGINT (CTRL-C), ancienne action sauvegardÃ©e dans oldAction
     if(sigaction(SIGINT, &action, &oldAction) != 0){
         erreur("Echec sigaction", 1);
     }
@@ -51,8 +51,8 @@ int main(int argc, char *argv[]) {
     printf("Processus de pid %d : Je vais executer boucle\n", getpid());
 
     /* Remplacer son code par celui de l'executable boucler */
-    /* Ne pas oublier de changer le répertoire pour son executable afficher */
-    // Note : Je n'arrive pas à faire tourner le programme correctement alors que j'ai mis le bon chemin du fichier, les parametres de execl ne doivent pas etre bons mais je ne vois pas quoi mettre d'autre
+    /* Ne pas oublier de changer le rÃ©pertoire pour son executable afficher */
+    // Note : Je n'arrive pas Ã  faire tourner le programme correctement alors que j'ai mis le bon chemin du fichier, les parametres de execl ne doivent pas etre bons mais je ne vois pas quoi mettre d'autre
     if(execl("./home/emilie/Documents/Cours_Emilie/L3/Programmation_Systeme/2020/TP4/afficher","afficher",NULL) != 0){
         erreur("Error execl", 2);
         exit(3);
