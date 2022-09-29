@@ -69,18 +69,18 @@ let gloutonSansH graphe = let final = [] in
 let g1 = ["WA","NA" ; "WA","SA" ; "NA","SA" ; "NA","Q" ; "SA","Q" ; "SA","V" ; "SA","NSW" ; "Q","NSW" ; "NSW","V" ]
 
 
-(* Un autre petit graphe pour vérifier le retour arrière *)
+(* Un autre petit graphe pour vÃ©rifier le retour arriÃ¨re *)
 
 let g2 = ["A","B" ; "A","E" ; "B","C" ; "B","D" ; "B","E" ; "C","D" ; "D","E"]
 
-(* Construction à partir d'un fichier au format "DIMACS standard" - décommenter les 4 dernières lignes *)
+(* Construction Ã  partir d'un fichier au format "DIMACS standard" - dÃ©commenter les 4 derniÃ¨res lignes *)
 
 let rec split s = try let i = String.index_from s 0 ' '
 	in (String.sub s 0 i)::(split (String.sub s (i+1) ((String.length s )-(i+1))))
 	with Not_found -> [s]
 
 let lire_graphe (nom_fichier : string) : ('a * 'a) list =
-(* retourne la liste des arêtes *)
+(* retourne la liste des arÃªtes *)
 	let ref_l_aretes = ref [] and flux = open_in nom_fichier
 	in try
 		while true; do match (split (input_line flux)) with
