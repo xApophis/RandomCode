@@ -20,7 +20,7 @@ void erreur (char *msg, int codeRetour) {
 }
 
 /*------------------------------------------------------------------------
- Traitement associé à SIGINT
+ Traitement associÃ© Ã  SIGINT
   ------------------------------------------------------------------------*/
 void traiterSIGINT (int sig) {
     if(sig == SIGINT)
@@ -32,7 +32,7 @@ void traiterSIGINT (int sig) {
  Code execute par chaque processus fils 
   ------------------------------------------------------------------------*/
 void fils () {
-  /* A completer : appeler indéfiniment afficher() */
+  /* A completer : appeler indÃ©finiment afficher() */
   while(1)
       afficher();
 
@@ -42,8 +42,8 @@ void fils () {
 /*------------------------------------------------------------------------*/
 int main(int argc, char *argv[]) {
 
-  // Se protéger contre Ctrl-C (SIGINT)
-  /* A compléter */
+  // Se protÃ©ger contre Ctrl-C (SIGINT)
+  /* A complÃ©ter */
   sigset_t set;
   sigfillset(&set);
   sigdelset(&set, SIGINT);
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
   printf("Processus (pere) de pid %d : protege contre SIGINT\n", getpid());
   
   int fils_pid;
-  /* Créer son fils */
+  /* CrÃ©er son fils */
   switch (fils_pid = fork()) {
     case - 1 : erreur("Echec fork", 1);
 
@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
  
   printf("Processus (pere) de pid %d : j'ai cree un fils de pid %d\n", getpid(), fils_pid);
 
-  /* Attendre éventuellement la fin de son fils */
+  /* Attendre Ã©ventuellement la fin de son fils */
   wait(NULL);
 
   return 0;
