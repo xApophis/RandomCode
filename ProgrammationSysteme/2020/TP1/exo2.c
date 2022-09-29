@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
   for (i = 0; i < nbThreads; i++) {
     arguments[i].nbAffichages = nbAffichages;
     arguments[i].rang = i;
-    /* A compléter */
+    /* A complÃ©ter */
     if (etat = pthread_create(&idThreads[i], NULL, thd_afficher,(void*)&arguments[i]) != 0)
       thdErreur("Echec create", etat, 0);
   }
