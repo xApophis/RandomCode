@@ -70,14 +70,14 @@ int main(int argc, char *argv[]) {
   if (nbThreads > NB_THREADS_MAX){
     nbThreads = NB_THREADS_MAX;
     valeurPartagee = rand()%10;
-    printf("J'initialise la valeur partagée à %d\n", valeurPartagee);
+    printf("J'initialise la valeur partagÃ©e Ã  %d\n", valeurPartagee);
   }
   
   /* Creation des threads */
   for (i = 0; i < nbThreads; i++) {
     arguments[i].nbAffichages = nbAffichages;
     arguments[i].rang = i;
-    /* A compléter */
+    /* A complÃ©ter */
     if (etat = pthread_create(&idThreads[i], NULL, thd_afficher,(void*)&arguments[i]) != 0)
       thdErreur("Echec create", etat, 0);
   }
